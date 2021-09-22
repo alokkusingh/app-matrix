@@ -28,7 +28,7 @@ spec:
         app: hello-service
     spec:
       containers:
-        - name: hello-service
+        - name: app-matrix
           image: alokkusingh/app-matrix:arm64v8
           imagePullPolicy: Never
           ports:
