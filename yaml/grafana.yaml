@@ -66,8 +66,9 @@ spec:
               name: grafana-pv
       volumes:
         - name: grafana-pv
-          persistentVolumeClaim:
-            claimName: grafana-pvc
+        #  persistentVolumeClaim:
+        #    claimName: grafana-pvc
+          mountPath: /mnt/data/grafana
 ---
 apiVersion: v1
 kind: Service
