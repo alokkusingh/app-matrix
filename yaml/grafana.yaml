@@ -63,12 +63,13 @@ spec:
               memory: 750Mi
           volumeMounts:
             - mountPath: /var/lib/grafana
-              name: grafana-pv
+              name: grafana-v
       volumes:
-        - name: grafana-pv
-        #  persistentVolumeClaim:
-        #    claimName: grafana-pvc
-          mountPath: /mnt/data/grafana
+        - name: grafana-v
+          hostPath:
+            path: /mnt/data/grafana
+          #  persistentVolumeClaim:
+          #    claimName: grafana-pvc
 ---
 apiVersion: v1
 kind: Service
