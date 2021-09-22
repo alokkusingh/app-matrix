@@ -1,0 +1,35 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: hello-service
+  namespace: monitoring
+spec:
+  selector:
+    app: hello-service
+  ports:
+    - protocol: TCP
+      port: 8080
+      nodePort: 24080
+  type: NodePort
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-service
+  namespace: monitoring
+spec:
+  selector:
+    matchLabels:
+      app: hello-service
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hello-service
+    spec:
+      containers:
+        - name: hello-service
+          image: alokkusingh/app-matrix:arm64v8
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
