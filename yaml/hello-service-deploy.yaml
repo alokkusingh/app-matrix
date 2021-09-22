@@ -30,6 +30,6 @@ spec:
       containers:
         - name: app-matrix
           image: alokkusingh/app-matrix:arm64v8
-          imagePullPolicy: Never
+          imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
