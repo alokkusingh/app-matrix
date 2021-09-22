@@ -7,6 +7,7 @@ Table of Contents
 * [Docker Build](#docker-build)
 * [Docker Run](#docker-run)
 * [Kubernetes Deployments](#kubernetes-deployment)
+* [Avaiable APIs](#available-apis)
 
 Created by [Alok Singh](https://github.com/alokkusingh)
 
@@ -65,3 +66,8 @@ kubectl get all -n monitoring
 ```
 kubectl delete namespace monitoring
 ```
+## Available APIs
+### Hello Service
+GET http://jgte:30080/app/hello/greet
+### Prometheus Dashboard   
+GET http://jgte:30900/
