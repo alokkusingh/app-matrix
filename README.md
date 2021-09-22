@@ -45,6 +45,7 @@ kubectl apply -f yaml/monitoring-namespace.yaml
 ### Deploy Hello Service
 ```
 kubectl apply -f yaml/hello-service-deploy.yaml
+kubectl autoscale deployment hello-service --min=2 --max=3 -n monitoring
 ```
 ### Deploy Prometheus
 ```
