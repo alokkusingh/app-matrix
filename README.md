@@ -52,6 +52,10 @@ kubectl apply -f yaml/prometheus-config.yaml
 kubectl apply -f yaml/prometheus-roles.yml
 kubectl apply -f yaml/prometheus-deployment.yaml
 ```
+### Deploy Grafana
+```
+kubectl apply -f yaml/grafana.yaml
+```
 ### Monitoring Commands
 ```
 kubectl get ep hello-service -n monitoring
@@ -59,6 +63,9 @@ kubectl describe svc hello-service -n monitoring
 
 kubectl logs pod/hello-service-c668fb66-jtf97 app-matrix -n monitoring
 kubectl logs pod/prometheus-c6d5c4d95-2c59b prometheus -n monitoring
+
+kubectl describe pod/grafana-756fb84d84-b8mzm -n monitoring
+
 kubectl get all -n monitoring
 ```
 
@@ -71,3 +78,5 @@ kubectl delete namespace monitoring
 GET http://jgte:30080/app/hello/greet
 ### Prometheus Dashboard   
 GET http://jgte:30900/
+### Grafana
+GET http://jgte:3000/login
