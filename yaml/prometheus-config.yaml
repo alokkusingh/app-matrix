@@ -22,11 +22,11 @@ data:
     # Here it's Prometheus itself.
     scrape_configs:
 
-      # - job_name: 'prometheus'
-      #   # metrics_path defaults to '/metrics'
-      #   # scheme defaults to 'http'.
-      #   static_configs:
-      #   - targets: ['localhost:9090']
+      - job_name: 'prometheus'
+         # metrics_path defaults to '/metrics'
+         # scheme defaults to 'http'.
+         static_configs:
+         - targets: ['localhost:9090']
       - job_name: 'kubernetes-nodes'
         scheme: https
         tls_config:
@@ -67,6 +67,9 @@ data:
         - source_labels: [__meta_kubernetes_pod_name]
           action: replace
           target_label: kubernetes_pod_name
+      - job_name: 'hello-service'
+        static_configs:
+        - targets: [ 'hello-service:8080' ]
     # remote storage details. For Metricfire accounts these can be
     # found at https://app.metricfire.com/quickstart/
 
