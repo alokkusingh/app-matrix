@@ -6,6 +6,7 @@ Table of Contents
 
 * [Docker Build](#docker-build)
 * [Docker Run](#docker-run)
+* [Kubernetes Deployments](#kubernetes-deployment)
 
 Created by [Alok Singh](https://github.com/alokkusingh)
 
@@ -33,4 +34,34 @@ docker run --rm --name app-matrix -p 8080:8080 alokkusingh/app-matrix:arm64v8
 ### For AMD64 Processor based environment
 ```
 docker run --rm --name app-matrix -p 8080:8080 alokkusingh/app-matrix:amd64
+```
+
+## Kubernetes Deployment
+### Create Namespace
+```
+kubectl apply -f yaml/monitoring-namespace.yaml
+```
+### Deploy Hello Service
+```
+kubectl apply -f yaml/hello-service-deploy.yaml
+```
+### Deploy Prometheus
+```
+kubectl apply -f yaml/prometheus-config.yaml
+kubectl apply -f yaml/prometheus-roles.yml
+kubectl apply -f yaml/prometheus-deployment.yaml
+```
+### Monitoring Commands
+```
+kubectl get ep hello-service -n monitoring
+kubectl describe svc hello-service -n monitoring
+
+kubectl logs pod/hello-service-c668fb66-jtf97 app-matrix -n monitoring
+kubectl logs pod/prometheus-c6d5c4d95-2c59b prometheus -n monitoring
+kubectl get all -n monitoring
+```
+
+### Undeploy All
+```
+kubectl delete namespace monitoring
 ```
