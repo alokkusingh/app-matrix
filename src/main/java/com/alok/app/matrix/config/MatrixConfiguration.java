@@ -6,9 +6,6 @@ import org.springframework.boot.actuate.autoconfigure.metrics.MeterRegistryCusto
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-
 @Configuration
 public class MatrixConfiguration {
 
