@@ -44,6 +44,7 @@ kubectl apply -f yaml/monitoring-namespace.yaml
 ```
 ### Deploy Hello Service
 ```
+kubectl apply -f yaml/hello-service-config.yaml
 kubectl apply -f yaml/hello-service-deploy.yaml
 kubectl autoscale deployment hello-service --min=2 --max=3 -n monitoring
 ```
@@ -76,7 +77,7 @@ kubectl delete namespace monitoring
 ```
 ## Available APIs
 ### Hello Service
-GET http://jgte:30080/app/hello/greet
+GET http://jgte:30080/hello/app/hello/greet
 ### Prometheus Dashboard   
 GET http://jgte:30900/
 ### Grafana

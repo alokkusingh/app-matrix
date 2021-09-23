@@ -68,7 +68,7 @@ data:
           action: replace
           target_label: kubernetes_pod_name
       - job_name: 'hello-service'
-        metrics_path: '/actuator/prometheus'
+        metrics_path: '/hello/actuator/prometheus'
         scrape_interval: 5s
         static_configs:
         - targets: [ 'hello-service:8080' ]

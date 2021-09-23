@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-service-config
+  namespace: monitoring
+data:
+  application.properties: |
+    debug=true
+    management.endpoints.web.exposure.include=*
+    management.endpoint.metrics.enabled=true
+    management.metrics.tags.application=hello-service
+    server.servlet.contextPath=/hello
