@@ -52,6 +52,9 @@ kubectl autoscale deployment hello-service --min=2 --max=3 -n monitoring
 ```
 kubectl apply -f yaml/prometheus-config.yaml
 kubectl apply -f yaml/prometheus-roles.yml
+```
+#### Auto Scale
+```
 kubectl apply -f yaml/prometheus-deployment.yaml
 ```
 ### Deploy Grafana
