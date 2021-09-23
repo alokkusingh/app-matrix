@@ -49,7 +49,7 @@ kubectl apply -f yaml/hello-service-deploy.yaml
 ```
 #### Auto Scale
 ```
-kubectl autoscale deployment hello-service --min=2 --max=3 -n monitoring
+kubectl autoscale deployment hello-service --min=2 --max=3 --cpu-percent=80 -n monitoring
 ```
 ### Deploy Prometheus
 ```

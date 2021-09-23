@@ -8,5 +8,4 @@ data:
     debug=true
     management.endpoints.web.exposure.include=*
     management.endpoint.metrics.enabled=true
-    management.metrics.tags.application=hello-service
     server.servlet.contextPath=/hello
