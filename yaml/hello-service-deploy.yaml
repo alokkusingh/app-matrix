@@ -21,7 +21,7 @@ spec:
   selector:
     matchLabels:
       app: hello-service
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
