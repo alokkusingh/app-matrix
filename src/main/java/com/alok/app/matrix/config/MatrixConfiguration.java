@@ -19,7 +19,7 @@ public class MatrixConfiguration {
 
     @Bean
     MeterRegistryCustomizer<MeterRegistry> metricsCommonTags() {
-        String hostname = System.getenv("HOSTNAME");
+        String hostname = System.getenv().getOrDefault("HOSTNAME", "localhost");
         return registry -> registry.config().commonTags(
                 "region", "India",
                 "service", "hello-service",
